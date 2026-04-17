@@ -19,6 +19,7 @@ USER root
 
 RUN /bin/bash /container-script.sh
 RUN chown steam:steam /entrypoint.sh
+RUN chmod 700 /entrypoint.sh
 RUN rm /container-script.sh
 RUN rm -rf /var/lib/apt/lists/*
 

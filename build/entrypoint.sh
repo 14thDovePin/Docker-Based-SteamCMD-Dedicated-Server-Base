@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVER_EXECUTABLE="/home/steam/server-files/SERVER_FILE_EXECUTABLE_HERE"
-APP = 343050  # DST as Sample
+APP=343050  # DST as Sample
 
 # Download server files if needed.
 if [ ! -f $SERVER_EXECUTABLE ]; then
