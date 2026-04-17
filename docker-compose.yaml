@@ -6,7 +6,7 @@ services:
       network: host
       context: build
     environment:
-      - sample_text="Hello World!!""
+      - sample_text="Hello World!!"
     volumes:
       - ./server-files:/home/steam/server-files
       - ./SERVER-data:/home/steam/.SERVER_DATA
