@@ -9,7 +9,7 @@ services:
       - sample_text="Hello World!!"
     volumes:
       - ./server-files:/home/steam/server-files
-      - ./SERVER-data:/home/steam/.SERVER_DATA
+      - ./server-data:/home/steam/SERVER_DATA
     ports:
       - 25565:25565
     stdin_open: true
