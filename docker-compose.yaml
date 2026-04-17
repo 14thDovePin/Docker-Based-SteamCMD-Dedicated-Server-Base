@@ -1,34 +1,16 @@
 services:
-  dst-master:
-    container_name: dst-server-master
-    image: dst-server:latest
+  dedicated-server:
+    container_name: dedicated-server
+    image: dedicated-server:latest
     build:
       network: host
       context: build
     environment:
-      - shard=Master
+      - sample_text="Hello World!!""
     volumes:
       - ./server-files:/home/steam/server-files
-      - ./klei:/home/steam/.klei
+      - ./data:/home/steam/SERVER_DATA
     ports:
-      - 10888
-      - 10998-10999
-      - 27017-27018
-      - 8767-8768
+      - 25565:25565
     stdin_open: true
     tty: true
-
-  dst-caves:
-    container_name: dst-server-caves
-    image: dst-server:latest
-    environment:
-      - shard=Caves
-    network_mode: service:dst-master
-    volumes:
-      - ./server-files:/home/steam/server-files
-      - ./klei:/home/steam/.klei
-    stdin_open: true
-    tty: true
-    depends_on:
-      - dst-master
-    restart: always

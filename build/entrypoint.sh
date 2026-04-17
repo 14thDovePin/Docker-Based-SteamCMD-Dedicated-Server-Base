@@ -1,18 +1,18 @@
 #!/bin/bash
 
-SERVER_FILE="/home/steam/server-files/bin/dontstarve_dedicated_server_nullrenderer"
+SERVER_FILE="/home/steam/server-files/SERVER_FILE_EXECUTABLE_HERE"
+APP = 343050  # DST as Sample
 
 # Download server files if needed.
-if [[ ! -f $SERVER_FILE && ${shard} = "Master" ]]; then
+if [ ! -f $SERVER_FILE ]; then
   echo "Downloading server files..."
 
   bash /home/steam/steamcmd/steamcmd.sh \
   +force_install_dir /home/steam/server-files \
   +login anonymous \
-  +app_update 343050 validate \
+  +app_update $APP validate \
   +quit
 fi
 
 # Start the server.
-cd /home/steam/server-files/bin
-LD_LIBRARY_PATH=~/dst_lib $SERVER_FILE -console -shard ${shard}
+bash $SERVER_FILE

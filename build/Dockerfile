@@ -2,20 +2,13 @@
 
 FROM cm2network/steamcmd:steam-bookworm
 
-# Set to "Master" or "Caves"
-ENV shard=""
+# Environment Variables
+ENV sample_text="Hello World!"
 
-# DST Master Port
-EXPOSE 10888
+# Document Ports
 
-# DST Server Ports
-EXPOSE 10998-10999
-
-# Steam Master Server Ports
-EXPOSE 27017-27018
-
-# Steam Authentication Ports
-EXPOSE 8767-8768
+# Sample Port
+EXPOSE 25565
 
 COPY container-script.sh /container-script.sh
 COPY entrypoint.sh /entrypoint.sh
@@ -29,6 +22,7 @@ RUN chown steam:steam /entrypoint.sh
 RUN rm /container-script.sh
 RUN rm -rf /var/lib/apt/lists/*
 
+# Set final user here.
 USER steam
 
 ENTRYPOINT [ "/entrypoint.sh" ]
